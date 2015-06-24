@@ -1,0 +1,50 @@
+package teacher;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Transcript{
+	private Scanner scanner = new Scanner(System.in);
+	private ArrayList<Integer> grades =new ArrayList<Integer>();
+	
+		
+	public Transcript(){
+	}
+	
+	public static void main(String[] args){
+			Transcript test=new Transcript();
+			test.start();
+			System.out.println(test.grades);
+		}
+		
+	public void start(){
+		while(true){
+			
+			String input=getAnswerToQuestion("Enter a grade or exit if you\'re done");
+			
+			if ("exit".equals(input.toLowerCase())){
+				break;
+			}
+			
+			else {
+				
+				if ((Integer.parseInt(input)<0) || (Integer.parseInt(input)>20)){
+					System.out.println("The grade must be between 0 and 20");
+				}
+				
+				else grades.add(Integer.parseInt(input));
+			}
+		}
+	}
+	
+	public String getAnswerToQuestion(String question) {
+		System.out.println(question);
+		String input = scanner.nextLine();
+		return input;
+	}
+	
+	public ArrayList<Integer> getGrades(){
+		return this.grades;
+	}
+
+}

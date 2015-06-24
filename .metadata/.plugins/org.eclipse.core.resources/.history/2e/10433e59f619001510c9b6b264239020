@@ -1,0 +1,42 @@
+package teacher;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Transcript {
+	private Scanner scanner = new Scanner(System.in);
+	private ArrayList<Integer> grades =new ArrayList<Integer>();
+	private int avg;
+	private int currentSum;
+		
+	private Transcript(){
+		currentSum=0;
+	}
+	
+	public static void main(String[] args){
+			Transcript test=new Transcript();
+			
+			
+		}
+		
+	public void start(){
+		while(true){
+			
+			String input=getAnswerToQuestion("Enter a grade or exit if you\'re done");
+			
+			if ("exit".equals(input.toLowerCase())){
+				break;
+			}
+			else {
+				
+				grades.add(Integer.parseInt(input));
+			}
+		}
+	}
+	
+	public String getAnswerToQuestion(String question) {
+		System.out.println(question);
+		String input = scanner.nextLine();
+		return input;
+	}
+}

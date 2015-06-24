@@ -1,0 +1,40 @@
+package teacher;
+
+public class Calc implements Runnable {
+	private int avg;
+	private int currentSum;
+	private Transcript transc;
+	Thread calc=new Thread();
+	
+	public Calc(){
+		
+	}
+	
+	public Thread getThread(){
+		return this.calc;
+	}
+	
+	int getAvg(){
+		return avg;
+	}
+	
+	@Override
+	public void run() {
+
+		while(true){
+			for (int i=0; i<transc.getGrades().size(); i++){
+				currentSum+=transc.getGrades().get(i);		
+			}
+			avg=currentSum/transc.getGrades().size();
+			System.out.println(avg);
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				break;
+			}
+		}
+	}
+}
